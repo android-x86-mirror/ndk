@@ -204,7 +204,7 @@ $(LOCAL_BUILT_MODULE): $(static_libraries) $(shared_libraries)
 # looks in the right location
 #
 ifneq ($(filter -l%,$(LOCAL_LDLIBS)),)
-    LOCAL_LDLIBS := -L$(SYSROOT)/usr/lib $(LOCAL_LDLIBS)
+    LOCAL_LDLIBS := -L$(if $(wildcard $(OUT)),$(OUT)/system/lib,$(SYSROOT)/usr/lib) $(LOCAL_LDLIBS)
 endif
 
 $(LOCAL_BUILT_MODULE): PRIVATE_STATIC_LIBRARIES := $(static_libraries)

@@ -23,12 +23,12 @@
 # revisions of the NDK.
 #
 
-TOOLCHAIN_NAME   := x86-4.2.1
-TOOLCHAIN_PREFIX := $(HOST_PREBUILT)/$(TOOLCHAIN_NAME)/bin/i686-android-linux-gnu-
+TOOLCHAIN_NAME   := i686-unknown-linux-gnu-4.2.1
+TOOLCHAIN_PREFIX := $(HOST_PREBUILT)/$(TOOLCHAIN_NAME)/bin/i686-unknown-linux-gnu-
 
 TARGET_CFLAGS.common := \
     -I$(SYSROOT)/usr/include \
-    -msoft-float -fpic \
+    -fpic \
     -ffunction-sections \
     -funwind-tables \
     -fstack-protector \

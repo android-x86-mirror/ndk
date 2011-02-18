@@ -197,6 +197,9 @@ include $(BUILD_SYSTEM)/definitions.mk
 # Location where all prebuilt binaries for a given host architectures
 # will be stored.
 HOST_PREBUILT := $(NDK_ROOT)/build/prebuilt/$(HOST_TAG)
+ifeq ($(wildcard $(HOST_PREBUILT)),)
+HOST_PREBUILT := $(NDK_ROOT)/../prebuilt/$(HOST_TAG)/toolchain
+endif
 
 # ====================================================================
 #

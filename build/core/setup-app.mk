@@ -42,6 +42,9 @@ all: ndk-app-$(_app)
 # which platform/abi/toolchain are we going to use?
 TARGET_PLATFORM := $(call get,$(_map),APP_PLATFORM)
 
+ifndef NDK_APP_ABI
+    NDK_APP_ABI := x86
+endif
 # The ABI(s) to use
 APP_ABI := $(strip $(NDK_APP_ABI))
 ifndef APP_ABI

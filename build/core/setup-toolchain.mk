@@ -69,6 +69,9 @@ include $(NDK_TOOLCHAIN.$(TARGET_TOOLCHAIN).setup)
 # We expect the gdbserver binary for this toolchain to be located at the same
 # place than the target C compiler.
 TARGET_GDBSERVER := $(dir $(TARGET_CC))/gdbserver
+ifeq ($(wildcard $(TARGET_GDBSERVER)),)
+TARGET_GDBSERVER := $(NDK_ROOT)/../prebuilt/android-$(TARGET_ARCH)/gdbserver/gdbserver
+endif
 
 # compute NDK_APP_DST_DIR as the destination directory for the generated files
 NDK_APP_DST_DIR := $(NDK_APP_PROJECT_PATH)/libs/$(TARGET_ARCH_ABI)

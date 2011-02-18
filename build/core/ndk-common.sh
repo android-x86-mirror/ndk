@@ -159,7 +159,7 @@ HOST_ARCH=`uname -m`
 case "$HOST_ARCH" in
     i?86) HOST_ARCH=x86
     ;;
-    amd64) HOST_ARCH=x86_64
+    *64) HOST_ARCH=x86 # x86_64 is not supported, fall back to x86
     ;;
     powerpc) HOST_ARCH=ppc
     ;;
